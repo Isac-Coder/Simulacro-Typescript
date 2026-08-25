@@ -5,8 +5,6 @@ export interface User{
     id:string,
     name:string,
     email:string,
-    password:string
+    role: UserRole,
     create_at:string,
-    update_at:string
-    role: UserRole
 }
