@@ -1,35 +1,53 @@
 import type { Category } from "./Category";
 
-export interface ProductImage{
-    id:string,
-    url:string,
-    order:number
+export interface ProductImage {
+  id: string;
+  url: string;
+  order: number;
 }
-
-export interface Product{
-    id:string,
-    name:string,
-    description?:string|null,
-    price:number,
-    stock:number,
-    categoryId:string,
-    category:Category,
-    images:ProductImage[],
-    create_at:string,
-    update_at:string
+ 
+export interface Product {
+  id: string;
+  name: string;
+  description: string | null;
+  price: number;
+  stock: number;
+  categoryId: string;
+  category: Category; // siempre viene poblada (relación eager en el backend)
+  images: ProductImage[];
+  createdAt: string;
+  updatedAt: string;
 }
-
-export interface CreateProductDto{
-    name?:string,
-    categoryId?:string,
-    page?:number,
-    limit?:number
+ 
+export interface CreateProductDto {
+  name: string;
+  description?: string;
+  price: number;
+  stock: number;
+  categoryId: string;
+  images?: string[]; // solo URLs; el backend arma el orden por la posición en el array
 }
-
-export interface PaginatedResponse<T>{
-    date:T[],
-    total: number,
-    page:number,
-    limit:number,
-    totalPage:number
+ 
+export interface UpdateProductDto {
+  name?: string;
+  description?: string;
+  price?: number;
+  stock?: number;
+  categoryId?: string;
+  images?: string[];
+}
+ 
+export interface QueryProductParams {
+  search?: string;
+  categoryId?: string;
+  page?: number;
+  limit?: number;
+}
+ 
+export interface PaginatedResponse<T> {
+  data: T[];
+  total: number;
+  page: number;
+  limit: number;
+  totalPages: number;
 }

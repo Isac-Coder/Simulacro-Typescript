@@ -19,7 +19,7 @@ export function LoginPage(){
         setLoading(true);
 
         try {
-            await login({ email, password });
+            login({ email, password });
             navigate('/');
         } catch (err) {
             setError(errorMessage(err));
