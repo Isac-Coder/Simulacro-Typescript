@@ -1,7 +1,7 @@
 import type { User } from "./User";
 
 export interface AuthResponse{
-    accesToken:string,
+    accessToken:string,
     user:User
 }
 
@@ -10,7 +10,7 @@ export interface LoginDto{
     password:string
 }
 
-export interface RegistoDto{
+export interface RegisterDto{
     name:string,
     email:string,
     password:string
