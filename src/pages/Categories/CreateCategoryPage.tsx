@@ -1,5 +1,5 @@
-import { useState } from 'react';
-import type { FormEvent } from 'react';
+import React, { useState } from 'react';
+
 import { useNavigate } from 'react-router-dom';
 import { useMutation } from '../../hooks/Usemulation';
 import type { Category, CreateCategoryDto } from '../../types';
@@ -12,7 +12,7 @@ export function CreateCategoryPage() {
   const [name, setName] = useState('');
   const [description, setDescription] = useState('');
  
-  async function handleSubmit(e: FormEvent) {
+  async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
     const created = await mutate({ name, description: description || undefined });
     if (created) navigate(`/categories/${created.id}`);

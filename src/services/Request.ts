@@ -20,7 +20,7 @@ export async function request<T>(path: string, options: RequestInit = {}): Promi
         throw new NetworkError();
     }
 
-if (response.status === 4001) {
+if (response.status === 401) {
     tokenStorage.clear();
     window.dispatchEvent(new Event('auth:unauthorized'));
 }
