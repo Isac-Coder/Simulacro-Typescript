@@ -4,20 +4,11 @@
 
 ```bash
 src/
-├── assets/          # Imágenes, iconos y estilos globales
-├── components/      # Componentes reutilizables globales (Botones, Modales)
-├── features/        # Módulos o secciones independientes de la aplicación
-│   ├── auth/        # Ejemplo: Sección de autenticación
-│   │   ├── components/  # Componentes exclusivos de auth (LoginForm)
-│   │   ├── hooks/       # Hooks exclusivos de auth (useAuth)
-│   │   └── services/    # Llamadas a API de auth (api.js)
-│   └── dashboard/   # Ejemplo: Sección principal / panel
-│       ├── components/  # WidgetList, StatCard
-│       └── index.js     # Exportación pública del módulo
-├── layout/          # Estructuras fijas (Navbar, Footer, Sidebar)
-├── pages/           # Vistas principales que combinan secciones/features
-├── routes/          # Configuración de navegación (AppRouter)
-├── utils/           # Funciones auxiliares o formateadores
-├── App.jsx          # Componente raíz
-└── main.jsx         # Punto de montaje
+├── types/          # interfaces del dominio (User, Category, Product, Auth...)
+├── services/        # capa HTTP: request<T>, errores, token storage
+├── hooks/            # useFetch (GET) y useMutation (POST/PATCH/DELETE)
+├── context/         # AuthContext: sesión, login, register, logout
+├── routes/          # ProtectedRoute y RoleRoute
+├── components/  # Navbar, Layout, ProductForm, FavoriteButton
+└── pages/            # una página por vista
 ```
