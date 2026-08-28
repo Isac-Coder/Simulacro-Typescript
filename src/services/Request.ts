@@ -20,25 +20,18 @@ export async function request<T>(path: string, options: RequestInit = {}): Promi
         throw new NetworkError();
     }
 
-if (response.status === 401) {
-    tokenStorage.clear();
-    window.dispatchEvent(new Event('auth:unauthorized'));
-}
+    if (response.status === 401) {
+        tokenStorage.clear();
+        window.dispatchEvent(new Event('auth:unauthorized'));
+    }
 
-if (!response.ok) {
-    const body = await response.json().catch(() => null);
-    const message = Array.isArray(body?.message) ? body.message[0] : body?.message;
-    throw new ApiError(message ?? `Error ${response.status}`, response.status, body?.message)
-}
+    if (!response.ok) {
+        const body = await response.json().catch(() => null);
+        const message = Array.isArray(body?.message) ? body.message[0] : body?.message;
+        throw new ApiError(message ?? `Error ${response.status}`, response.status, body?.message)
+    }
 
-if (response.status === 204) return undefined as T;
-return response.json();
-
-
-
-
-
-
-
+    if (response.status === 204) return undefined as T;
+    return response.json();
 
 }

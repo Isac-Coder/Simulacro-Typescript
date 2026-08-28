@@ -6,5 +6,5 @@ export interface User{
     name:string,
     email:string,
     role: UserRole,
-    create_at:string,
+    createAt:string,
 }

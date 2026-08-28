@@ -2,8 +2,8 @@ export interface Category{
     id:string,
     name:string,
     description:string | null,
-    create_at:string,
-    update_at:string
+    createAt:string,
+    updateAt:string
 }
 
 export interface CreateCategoryDto{

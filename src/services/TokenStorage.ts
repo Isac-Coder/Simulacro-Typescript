@@ -11,4 +11,5 @@ export const tokenStorage = {
     clear(): void{
         localStorage.removeItem(TOKEN_KEY)
         sessionStorage.removeItem(TOKEN_KEY)
-    }}
+    }
+}

@@ -13,7 +13,7 @@ export interface Product {
   price: number;
   stock: number;
   categoryId: string;
-  category: Category; // siempre viene poblada (relación eager en el backend)
+  category: Category; 
   images: ProductImage[];
   createdAt: string;
   updatedAt: string;
@@ -25,7 +25,7 @@ export interface CreateProductDto {
   price: number;
   stock: number;
   categoryId: string;
-  images?: string[]; // solo URLs; el backend arma el orden por la posición en el array
+  images?: string[];
 }
  
 export interface UpdateProductDto {

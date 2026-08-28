@@ -4,5 +4,5 @@ export interface Favorite{
     id:string,
     userId:string,
     productId:Product,
-    create_at:string
+    createAt:string
 }
