@@ -1,8 +1,10 @@
-import { useNavigate, useParams } from 'react-router-dom';
+import { Link, useNavigate, useParams } from 'react-router-dom';
 import { useMutation } from '../hooks/Usemulation';
 import { ProductForm } from './ProductForm';
 import type { Product, UpdateProductDto } from '../types';
 import { useFetch } from '../hooks/Usefetch';
+import { useAuth } from '../context/AuthContext';
+import { FavoriteButton } from './FavoriteButton';
 
 export function ProductDetailPage() {
   const { id } = useParams<{ id: string }>();
